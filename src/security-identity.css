@@ -1711,3 +1711,158 @@ body {
 .identity-site .contact-links > a > svg {
   color: #bf815d;
 }
+
+/* Skill domains and real contact shortcuts keep the workbench practical. */
+.identity-site .tool-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 34px 30px;
+  align-items: start;
+}
+.identity-site .tool-group {
+  min-width: 0;
+  padding-top: 23px;
+  border-top: 1px solid #647351;
+}
+.identity-site .tool-number {
+  display: block;
+  margin-bottom: 12px;
+  color: #aab590;
+  font: 10px/1.5 var(--security-mono);
+  letter-spacing: 1px;
+}
+.identity-site .tool-group h3 {
+  margin: 0 0 18px;
+  color: #e7e4d8;
+  font: 500 16px/1.5 var(--security-mono);
+  letter-spacing: -0.3px;
+  overflow-wrap: anywhere;
+}
+.identity-site .tool-group p {
+  margin: 0 0 18px;
+  color: #aab09e;
+  font-size: 13px;
+  line-height: 1.85;
+}
+.identity-site .tool-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.identity-site .tool-tags span {
+  padding: 7px 10px;
+  color: #bdc7aa;
+  border: 1px solid #495342;
+  background: #20261d;
+  font: 12px/1.5 var(--security-mono);
+  overflow-wrap: anywhere;
+}
+.identity-site .hands-on-labs {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  align-items: center;
+  gap: 22px 30px;
+  margin-top: 40px;
+  padding: 25px 27px;
+  border: 1px solid #495342;
+  border-left: 2px solid #bf815d;
+  background: #181b16;
+}
+.identity-site .hands-on-labs h3 {
+  margin: 0;
+  color: #e7e4d8;
+  font: 500 16px/1.5 var(--security-mono);
+  letter-spacing: -0.25px;
+}
+.identity-site .lab-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.identity-site .lab-tags span {
+  padding: 7px 11px;
+  color: #c8d1b7;
+  border: 1px solid #58674b;
+  background: #242d1f;
+  font: 12px/1.5 var(--security-mono);
+}
+.identity-site .contact-socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 4px;
+}
+.identity-site a.contact-social {
+  display: grid;
+  place-items: center;
+  flex: 0 0 60px;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  color: #aab590;
+  border: 1px solid #657354;
+  border-radius: 3px;
+  background: #181b16;
+  text-decoration: none;
+  transition:
+    color 160ms,
+    background 160ms,
+    border-color 160ms,
+    transform 160ms;
+}
+.identity-site a.contact-social:hover {
+  color: #d2a17e;
+  border-color: #bf815d;
+  background: #252a20;
+  transform: translateY(-2px);
+}
+.identity-site a.contact-social:focus-visible {
+  color: #e7e4d8;
+  border-color: #bf815d;
+  outline: 2px solid #bf815d;
+  outline-offset: 5px;
+  background: #252a20;
+}
+.identity-site .contact-social > svg {
+  display: block;
+  width: 26px;
+  height: 26px;
+  pointer-events: none;
+}
+@media (max-width: 1000px) {
+  .identity-site .tool-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .identity-site .hands-on-labs {
+    grid-template-columns: 160px minmax(0, 1fr);
+    gap: 22px;
+  }
+}
+@media (max-width: 640px) {
+  .identity-site .tool-grid {
+    grid-template-columns: 1fr;
+    gap: 29px;
+  }
+  .identity-site .tool-group {
+    padding-top: 21px;
+  }
+  .identity-site .tool-group h3 {
+    margin-bottom: 16px;
+  }
+  .identity-site .hands-on-labs {
+    grid-template-columns: 1fr;
+    margin-top: 31px;
+    padding: 23px 21px;
+    gap: 17px;
+  }
+  .identity-site .contact-socials {
+    gap: 14px;
+    padding-top: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .identity-site a.contact-social:hover {
+    transform: none;
+  }
+}

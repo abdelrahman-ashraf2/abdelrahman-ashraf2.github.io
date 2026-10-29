@@ -4,7 +4,7 @@ Personal portfolio for a cybersecurity student and VAPT trainee. Built with Reac
 
 Primary site: [abdelrahman-ashraf2.github.io](https://abdelrahman-ashraf2.github.io/)
 
-The previous [project URL](https://abdelrahman-ashraf2.github.io/abdelrahman-ashraf-portfolio/) remains available.
+This user-site repository is the only maintained portfolio deployment.
 
 ## Development
 
@@ -26,7 +26,7 @@ Native anchors, keyboard-accessible tabs and disclosure buttons, mobile navigati
 
 Edit `lib/identity-data.ts` for projects, training, contact details, and writeups. Education and training descriptions use the supplied CV; the public LinkedIn excerpt confirms the DEPI VAPT headline, but the full profile was behind sign-in during this update. Training is not presented as employment, and lab practice is not presented as client work.
 
-The featured [Applied Cryptography Lab](https://github.com/abdelrahman-ashraf2/applied-cryptography-lab) is a runnable educational Python project. No unpublished article or report is presented as publicly available.
+Technical skills and hands-on lab platforms follow the latest supplied skills screenshot. The portfolio focuses on penetration testing and vulnerability analysis. No unpublished article or report is presented as publicly available.
 
 ## Adding writeups
 
@@ -49,7 +49,9 @@ The `writeups` array starts empty and renders a clear unpublished state. To publ
 
 ## Deployment
 
-`.github/workflows/pages.yml` builds and deploys `dist/` when `main` changes. The primary repository is `abdelrahman-ashraf2.github.io`; the original project repository is preserved as a working mirror. Push verified changes to both remotes to keep the two addresses synchronized.
+`.github/workflows/pages.yml` builds and deploys `dist/` when `main` changes. The repository is `abdelrahman-ashraf2.github.io`. Publish only to this repository; the previous project repository is being retired.
+
+The contact section uses icon-only links with accessible labels. GitHub and LinkedIn brand paths are from Bootstrap Icons; their MIT license is retained in `public/third-party-notices.txt`.
 
 ## Contact
 

@@ -8,37 +8,8 @@ export const profile = {
 
 export const selectedWork = [
   {
-    id: 'crypto',
-    number: '01',
-    title: 'Applied Cryptography Lab',
-    category: 'Python / University project',
-    description:
-      'Turning my information-security coursework into a usable Python lab: explore encryption, key exchange, digital signatures, and what happens when their assumptions fail.',
-    tags: ['Python', 'Cryptography', 'Image encryption'],
-    details: [
-      [
-        'Build',
-        'A command-line lab bringing four cryptography demonstrations into one project.',
-      ],
-      [
-        'Explore',
-        'Feistel rounds, a Diffie–Hellman man-in-the-middle demonstration, AES image modes, and DSA signature tampering.',
-      ],
-      [
-        'Try',
-        'Use your own image to compare block-cipher modes, then verify that decryption restores the original data.',
-      ],
-      [
-        'Context',
-        'Developed from university coursework. Educational demonstrations, not a production cryptography library.',
-      ],
-    ],
-    repository:
-      'https://github.com/abdelrahman-ashraf2/applied-cryptography-lab',
-  },
-  {
     id: 'network',
-    number: '02',
+    number: '01',
     title: 'Network & host security labs',
     category: 'Penetration testing / Lab practice',
     description:
@@ -66,7 +37,7 @@ export const selectedWork = [
   },
   {
     id: 'web',
-    number: '03',
+    number: '02',
     title: 'Web application security practice',
     category: 'Web security / Training labs',
     description:
@@ -96,23 +67,46 @@ export const selectedWork = [
 
 export const toolkit = [
   {
-    title: 'Web & network testing',
-    description:
-      'The tools I use to inspect requests, enumerate services, and understand traffic.',
-    tools: ['Burp Suite', 'Nmap', 'Wireshark', 'Metasploit'],
+    title: 'Web Penetration Testing',
+    tools: ['Burp Suite', 'SQLMap', 'ffuf', 'dirsearch'],
   },
   {
-    title: 'Systems & investigation',
-    description:
-      'A Linux and Windows foundation, with endpoint investigation from my SOC internship.',
-    tools: ['Kali Linux', 'Windows', 'Sysmon', 'ProcMon'],
+    title: 'Mobile Security',
+    tools: [
+      'Android Testing',
+      'APK Reverse Engineering',
+      'Static & Dynamic Analysis',
+      'JADX',
+      'ADB',
+    ],
   },
   {
-    title: 'Code & automation',
-    description:
-      'Python projects backed by programming fundamentals and shell scripting practice.',
-    tools: ['Python', 'Bash', 'PowerShell', 'C / C++'],
+    title: 'Active Directory',
+    tools: ['BloodHound', 'Mimikatz', 'pypykatz'],
   },
+  {
+    title: 'Network Penetration Testing',
+    tools: ['Nmap', 'Metasploit', 'Wireshark'],
+  },
+  {
+    title: 'Programming',
+    tools: ['Python', 'PHP', 'JavaScript', 'SQL'],
+  },
+  {
+    title: 'Operating Systems',
+    tools: ['Linux', 'Windows'],
+  },
+  {
+    title: 'Version Control',
+    tools: ['Git', 'GitHub'],
+  },
+];
+
+export const handsOnLabs = [
+  'OWASP Juice Shop',
+  'DVWA',
+  'PortSwigger Web Security Academy',
+  'Hack The Box Academy Labs',
 ];
 
 export const learningJourney = [

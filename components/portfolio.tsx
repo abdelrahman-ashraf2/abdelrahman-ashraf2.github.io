@@ -8,8 +8,6 @@ import {
   ChevronDown,
   Code2,
   Download,
-  GitBranch,
-  Link2,
   Mail,
   Menu,
   Shield,
@@ -17,8 +15,10 @@ import {
   X,
 } from 'lucide-react';
 import { TraceJourney, TraceSectionBridge } from '@/components/trace-journey';
+import { ContactBrandIcon } from '@/components/contact-brand-icon';
 import {
   learningJourney,
+  handsOnLabs,
   profile,
   selectedWork,
   toolkit,
@@ -120,7 +120,7 @@ function Navbar() {
 
 function LabConsole() {
   const [tab, setTab] = useState(0);
-  const tabs = ['profile.json', 'crypto_lab.py', 'workflow.md'];
+  const tabs = ['profile.json', 'skills.txt', 'workflow.md'];
   const buttons = useRef<(HTMLButtonElement | null)[]>([]);
   const navigate = (event: KeyboardEvent<HTMLButtonElement>, index: number) => {
     let next = index;
@@ -179,13 +179,7 @@ function LabConsole() {
         <p className="console-prompt">
           <span>$</span>{' '}
           <code>
-            {
-              [
-                'cat profile.json',
-                'open applied-cryptography-lab',
-                'cat workflow.md',
-              ][tab]
-            }
+            {['cat profile.json', 'cat skills.txt', 'cat workflow.md'][tab]}
           </code>
         </p>
         <div className="console-content">
@@ -199,15 +193,15 @@ function LabConsole() {
                 </div>
                 <div>
                   <dt>focus</dt>
-                  <dd>Web & network security</dd>
+                  <dd>Web, mobile & network security</dd>
                 </div>
                 <div>
                   <dt>track</dt>
                   <dd>VAPT trainee @ DEPI</dd>
                 </div>
                 <div>
-                  <dt>build</dt>
-                  <dd>Python security projects</dd>
+                  <dt>labs</dt>
+                  <dd>Web security & vulnerable machines</dd>
                 </div>
                 <div>
                   <dt>approach</dt>
@@ -220,28 +214,24 @@ function LabConsole() {
           {tab === 1 && (
             <div className="console-project">
               <p className="console-comment">
-                # From information-security coursework
+                # Technical skills / hands-on toolkit
               </p>
               <ul>
                 <li>
-                  <Check size={13} /> Feistel encryption rounds
+                  <Check size={13} /> Web · Burp Suite, SQLMap, ffuf
                 </li>
                 <li>
-                  <Check size={13} /> Diffie–Hellman & MITM
+                  <Check size={13} /> Mobile · JADX, ADB, APK analysis
                 </li>
                 <li>
-                  <Check size={13} /> AES modes · bring your own image
+                  <Check size={13} /> AD · BloodHound, Mimikatz, pypykatz
                 </li>
                 <li>
-                  <Check size={13} /> DSA signatures & tampering
+                  <Check size={13} /> Network · Nmap, Metasploit, Wireshark
                 </li>
               </ul>
-              <a
-                href={selectedWork[0].repository!}
-                target="_blank"
-                rel="noreferrer"
-              >
-                Read the source <ArrowUpRight size={13} />
+              <a href="#toolkit">
+                View all skills <ArrowDown size={13} />
               </a>
             </div>
           )}
@@ -293,14 +283,14 @@ function Hero() {
           </span>
         </h1>
         <p className="hero-role">
-          Penetration testing.
+          Vulnerability analysis.
           <br />
-          <span>Python security projects.</span>
+          <span>Penetration testing.</span>
         </p>
         <p className="hero-summary">
-          Cybersecurity student and VAPT trainee. I work through web and network
-          labs, build Python security projects, and document what I can
-          reproduce.
+          Cybersecurity student and VAPT trainee focused on web, mobile, and
+          network security. I practice in authorized labs and document
+          reproducible findings.
         </p>
         <div className="hero-actions">
           <a className="primary-action" href="#projects">
@@ -352,7 +342,7 @@ function About() {
           <p>
             My SOC internship gave me experience investigating alerts and
             endpoint activity. Now I’m bringing that perspective to web and
-            network testing, Python projects, and clear technical notes.
+            network testing, hands-on labs, and clear technical notes.
           </p>
           <p className="education-line">
             <span>EDUCATION</span>B.Eng. · Faculty of Electronic Engineering
@@ -372,8 +362,8 @@ function Projects() {
       <Heading
         number="02"
         label="SELECTED WORK"
-        title="Code. Labs. Evidence."
-        description="A project you can run, and the practical training behind my testing workflow."
+        title="Labs. Testing. Evidence."
+        description="Selected practice in web, network, and host security."
       />
       <div className="case-list">
         {selectedWork.map((project, index) => (
@@ -387,13 +377,13 @@ function Projects() {
             <div className="case-content">
               <p className="case-meta">
                 <span>{project.category}</span>
-                {index === 0 && (
+                {project.repository && (
                   <span className="code-available">SOURCE AVAILABLE</span>
                 )}
               </p>
               <div className="case-title-row">
                 <h3>{project.title}</h3>
-                {index === 0 ? <Code2 size={22} /> : <Shield size={22} />}
+                <Shield size={22} />
               </div>
               <p className="case-description">{project.description}</p>
               <div className="case-tags">
@@ -404,7 +394,7 @@ function Projects() {
               <div className="case-links">
                 {project.repository && (
                   <a href={project.repository} target="_blank" rel="noreferrer">
-                    <GitBranch size={15} /> View repository{' '}
+                    <Code2 size={15} /> View repository{' '}
                     <ArrowUpRight size={13} />
                   </a>
                 )}
@@ -491,7 +481,7 @@ function Writeups() {
             <div className="writeup-topics" aria-label="Planned topics">
               <span>Machine walkthroughs</span>
               <span>Web security</span>
-              <span>Python & cryptography</span>
+              <span>Mobile & Active Directory</span>
             </div>
           </div>
         </div>
@@ -505,16 +495,15 @@ function Toolkit() {
     <section id="toolkit" className="identity-section identity-wrap">
       <Heading
         number="04"
-        label="TOOLKIT"
-        title="Tools I use. Foundations I’m building."
-        description="A working toolkit, not a list of everything in cybersecurity."
+        label="TECHNICAL SKILLS"
+        title="Skills & hands-on practice."
+        description="Web, mobile, Active Directory, and network security."
       />
       <div className="tool-grid">
         {toolkit.map((group, index) => (
           <article className="tool-group" key={group.title}>
             <span className="tool-number">0{index + 1}</span>
             <h3>{group.title}</h3>
-            <p>{group.description}</p>
             <div className="tool-tags">
               {group.tools.map((tool) => (
                 <span key={tool}>{tool}</span>
@@ -522,6 +511,14 @@ function Toolkit() {
             </div>
           </article>
         ))}
+      </div>
+      <div className="hands-on-labs">
+        <h3>Hands-On Labs</h3>
+        <div className="lab-tags">
+          {handsOnLabs.map((lab) => (
+            <span key={lab}>{lab}</span>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -582,30 +579,34 @@ function Contact() {
             projects together.
           </p>
         </div>
-        <div className="contact-links">
-          <a href={`mailto:${profile.email}`}>
-            <Mail size={20} />
-            <div>
-              <span className="contact-link-label">EMAIL</span>
-              <strong>{profile.email}</strong>
-            </div>
-            <ArrowUpRight size={18} />
+        <div className="contact-socials" aria-label="Contact links">
+          <a
+            className="contact-social"
+            href={`mailto:${profile.email}`}
+            aria-label="Send me an email"
+            title="Email"
+          >
+            <Mail aria-hidden="true" size={26} />
           </a>
-          <a href={profile.linkedin} target="_blank" rel="noreferrer">
-            <Link2 size={20} />
-            <div>
-              <span className="contact-link-label">LINKEDIN</span>
-              <strong>Abdelrahman Ashraf</strong>
-            </div>
-            <ArrowUpRight size={18} />
+          <a
+            className="contact-social"
+            href={profile.linkedin}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open my LinkedIn profile"
+            title="LinkedIn"
+          >
+            <ContactBrandIcon kind="linkedin" />
           </a>
-          <a href={profile.github} target="_blank" rel="noreferrer">
-            <GitBranch size={20} />
-            <div>
-              <span className="contact-link-label">GITHUB</span>
-              <strong>abdelrahman-ashraf2</strong>
-            </div>
-            <ArrowUpRight size={18} />
+          <a
+            className="contact-social"
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Open my GitHub profile"
+            title="GitHub"
+          >
+            <ContactBrandIcon kind="github" />
           </a>
         </div>
       </div>
